@@ -48,6 +48,11 @@ const VehiculeForm: React.FunctionComponent<Props> = ({ vehicule, isEditForm }) 
         type: {}
     });
 
+    /**
+     * Valide les différents champs du formulaire avec des conditions
+     * Pour chaque champ du form on associe un message d'erreur et un booleen pour savoir si il est valide
+     * @returns Boolean
+     */
     const validateForm = () => {
         let newForm: Form = form;
 
@@ -122,11 +127,15 @@ const VehiculeForm: React.FunctionComponent<Props> = ({ vehicule, isEditForm }) 
         }
 
         setForm(newForm);
-        console.log(newForm);
 
         return newForm.marque.isValid && newForm.modele.isValid && newForm.immatriculation.isValid && newForm.etat.isValid && newForm.prix.isValid && newForm.disponibilite.isValid && newForm.type.isValid;
     }
 
+    /**
+     * Appelée lors du submit du formulaire 
+     * Si la fonction validateForm retourne true 
+     * add ou update un vehicule selon isEditForm (boolean) 
+     */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const isFormValid = validateForm();
@@ -143,10 +152,16 @@ const VehiculeForm: React.FunctionComponent<Props> = ({ vehicule, isEditForm }) 
         }
     }
 
+    /**
+     * Ajoute un vehicule et redirige vers la gestion des vehicules
+     */
     const addVehicule = () => {
         VehiculeService.addVehicule(vehicule).then(() => navigate(`/gestion-vehicules`));
     }
 
+    /**
+     * Modifie un vehicule et redirige vers la gestion des vehicules
+     */
     const updateVehicule = () => {
         VehiculeService.updateVehicule(vehicule).then(() => navigate(`/gestion-vehicules`));
     }
