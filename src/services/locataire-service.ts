@@ -20,18 +20,27 @@ export default class LocataireService {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(locataire)
         })
-        .then(response => response.json())
-        .catch(error => this.handleError(error));
+            .then(response => response.json())
+            .catch(error => this.handleError(error));
     }
 
     static updateLocataire(locataire: Locataire): Promise<Locataire> {
         return fetch(`http://localhost:3001/locataires/${locataire.id}`, {
-            method: 'PUT', 
-            headers: { 'Content-Type' : 'application/json'},
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(locataire)
         })
-        .then(response => response.json())
-        .catch(error => this.handleError(error));
+            .then(response => response.json())
+            .catch(error => this.handleError(error));
+    }
+
+    static deleteLocataire(locataire: Locataire): Promise<{}> {
+        return fetch(`http://localhost:3001/locataires/${locataire.id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => res.json())
+            .catch(err => this.handleError(err));
     }
 
     static handleError(error: Error): void {
