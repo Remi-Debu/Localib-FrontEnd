@@ -7,10 +7,10 @@ export default class Locataire {
 
     constructor(
         id: number,
-        nom: string,
-        prenom: string,
-        email: string,
-        telephone: string
+        nom: string = "",
+        prenom: string = "",
+        email: string = "",
+        telephone: string = ""
     ) {
         this.id = id;
         this.nom = nom;
