@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import Vehicule from '../../models/vehicule';
 import VehiculeService from '../../services/vehicule-service';
 import VehiculeForm from '../../components/vehicule-form';
 import { Toolbar } from 'primereact/toolbar';
+import Menu from '../../components/menu';
 
 const VehiculeUpdate: React.FunctionComponent = () => {
     const state: number = useLocation().state;
@@ -29,13 +31,14 @@ const VehiculeUpdate: React.FunctionComponent = () => {
 
     return (
         <>
+            <Menu />
             <Toolbar left={leftContents} />
             {vehicule ? (
                 <div className="row">
                     <VehiculeForm vehicule={vehicule} isEditForm={true} />
                 </div>
             ) : (
-                <h4 className="center">Le véhicule n'existe pas</h4>
+                <Link to="*" />
             )}
         </>
     )

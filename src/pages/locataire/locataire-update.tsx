@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import Locataire from '../../models/locataire';
 import { Toolbar } from 'primereact/toolbar';
 import LocataireService from '../../services/locataire-service';
 import LocataireForm from '../../components/locataire-form';
+import Menu from '../../components/menu';
 
 const LocataireUpdate: React.FunctionComponent = () => {
     const state: number = useLocation().state;
@@ -22,7 +24,7 @@ const LocataireUpdate: React.FunctionComponent = () => {
             {locataire ? (
                 <h1 className="mx-0 my-1">Modifier {locataire.nom + " " + locataire.prenom}</h1>
             ) : (
-                <h4 className="center">Inconnu</h4>
+                <h4 className="center">Modifier un Locataire</h4>
             )}
         </>
     );
@@ -31,11 +33,12 @@ const LocataireUpdate: React.FunctionComponent = () => {
         <>
             {locataire ? (
                 <div>
+                    <Menu />
                     <Toolbar left={leftContents} />
                     <LocataireForm locataire={locataire} isEditForm={true} />
                 </div>
             ) : (
-                <h4>Inconnu</h4>
+                <Link to="*" />
             )}
         </>
     )

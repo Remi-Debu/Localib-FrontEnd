@@ -9,6 +9,7 @@ import { Column } from 'primereact/column';
 import { Toolbar } from 'primereact/toolbar';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
+import Menu from '../../components/menu';
 
 const GestionVehicules: React.FunctionComponent = () => {
     const [vehicules, setVehicules] = useState<Vehicule[]>([]);
@@ -104,6 +105,7 @@ const GestionVehicules: React.FunctionComponent = () => {
 
     return (
         <>
+            <Menu />
             <Toolbar left={leftContents} right={rightContents} />
 
             <DataTable

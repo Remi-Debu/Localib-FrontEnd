@@ -9,6 +9,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
+import Menu from '../../components/menu';
 
 const GestionLocataires: React.FunctionComponent = () => {
     const [locataires, setLocataires] = useState<Locataire[]>([]);
@@ -107,6 +108,7 @@ const GestionLocataires: React.FunctionComponent = () => {
 
     return (
         <>
+            <Menu />
             <Toolbar left={leftContents} right={rightContents} />
 
             <DataTable
