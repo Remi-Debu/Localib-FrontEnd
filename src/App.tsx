@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import GestionLocataires from './pages/gestion-locataires';
 import LocataireAdd from './pages/locataire-add';
 import LocataireUpdate from './pages/locataire-update';
+import GestionVehicules from './pages/gestion-vehicules';
+import VehiculeAdd from './pages/vehicule-add';
+import VehiculeUpdate from './pages/vehicule-update';
 
 
 function App() {
@@ -18,7 +21,9 @@ function App() {
           <Route path='*' element={<p>Page non trouvée !</p>} />
           <Route path='/' element={<Navigate to="/gestion-vehicules" />} />
 
-          <Route path='/gestion-vehicules' />  
+          <Route path='/gestion-vehicules' element={<GestionVehicules />} />
+          <Route path='/gestion-vehicules/ajouter' element={<VehiculeAdd />} />
+          <Route path='/gestion-vehicules/modifier' element={<VehiculeUpdate />} />
 
           <Route path='/gestion-locataires' element={<GestionLocataires />} />
           <Route path='/gestion-locataires/ajouter' element={<LocataireAdd />} />

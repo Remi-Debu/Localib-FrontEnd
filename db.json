@@ -5,7 +5,7 @@
       "marque": "Renault",
       "modele": "Clio",
       "immatriculation": "123-AB-59",
-      "etat": "A",
+      "etat": "B",
       "prix": 148.54,
       "disponibilite": "Oui",
       "type": "Voiture"
@@ -31,14 +31,14 @@
       "type": "Moto"
     },
     {
-      "id": 4,
-      "marque": "test",
-      "modele": "test",
-      "immatriculation": "test",
-      "etat": "A",
-      "prix": 12.01,
-      "disponibilite": "Non",
-      "type": "Camion"
+      "id": 1665662911536,
+      "marque": "Kawazaki",
+      "modele": "H2R",
+      "immatriculation": "456-ZR-48",
+      "etat": "D",
+      "prix": 319.85,
+      "disponibilite": "Oui",
+      "type": "Moto"
     }
   ],
   "locataires": [
