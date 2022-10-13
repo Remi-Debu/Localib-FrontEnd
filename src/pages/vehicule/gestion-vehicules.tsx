@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './vehicule.css';
 import Vehicule from '../../models/vehicule';
 import VehiculeService from '../../services/vehicule-service';
 import { DataTable } from 'primereact/datatable';
@@ -27,7 +28,12 @@ const GestionVehicules: React.FunctionComponent = () => {
      * @returns Titre de la page.
      */
     const leftContents = () => (
-        <h1 className="mx-0 my-1">Gestion des Véhicules</h1>
+        <>
+            <h1 className="mx-0 my-1" style={{ marginRight: "30px" }}>Gestion des Véhicules</h1>
+            <Link to="/gestion-vehicules/ajouter" style={{ textDecoration: "none" }}>
+                <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
+            </Link>
+        </>
     );
 
     /**
@@ -35,15 +41,10 @@ const GestionVehicules: React.FunctionComponent = () => {
      *  @returns Bouton d'ajout.
      */
     const rightContents = () => (
-        <>
-            <span className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
-            </span>
-            <Link to="/gestion-vehicules/ajouter" style={{ textDecoration: "none" }}>
-                <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
-            </Link>
-        </>
+        <span className="p-input-icon-left">
+            <i className="pi pi-search" />
+            <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
+        </span>
     );
 
     /**
@@ -53,7 +54,7 @@ const GestionVehicules: React.FunctionComponent = () => {
     const actionButtonTable = (rowData: Vehicule) => {
         return (
             <>
-                <Link to={"/gestion-vehicules/modifier"} state={rowData.id} style={{ textDecoration: "none" }}>
+                <Link to={"/gestion-vehicules/modifier"} state={rowData.id} style={{ textDecoration: "none", marginRight: "20px" }}>
                     <Button icon="pi pi-pencil" className="p-button-rounded p-button-warning mr-2" />
                 </Link>
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmDeleteVehicule(rowData)} />
@@ -113,15 +114,16 @@ const GestionVehicules: React.FunctionComponent = () => {
                 responsiveLayout="scroll"
                 stripedRows
                 globalFilter={globalFilter}
+                style={{ width: '90%', margin: '0 auto 0 auto' }}
             >
-                <Column field="marque" header="Marque" sortable />
-                <Column field="modele" header="Modèle" sortable />
-                <Column field="immatriculation" header="Immatriculation" sortable />
-                <Column field="etat" header="État" sortable />
-                <Column field="prix" header="Prix" sortable />
-                <Column field="type" header="Type" sortable />
-                <Column field="disponibilite" header="Disponibilité" sortable />
-                <Column body={actionButtonTable} exportable={false} />
+                <Column field="marque" header="Marque" align="center" sortable />
+                <Column field="modele" header="Modèle" align="center" sortable />
+                <Column field="immatriculation" header="Immatriculation" align="center" sortable />
+                <Column field="etat" header="État" align="center" sortable />
+                <Column field="prix" header="Prix" align="center" sortable />
+                <Column field="type" header="Type" align="center" sortable />
+                <Column field="disponibilite" header="Disponibilité" align="center" sortable />
+                <Column body={actionButtonTable} />
             </DataTable>
 
             <Dialog visible={deleteVehiculeDialog} style={{ width: '450px' }} header="Confirmer la suppression" modal footer={deleteVehiculeDialogFooter} onHide={hideDeleteVehiculeDialog}>

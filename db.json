@@ -66,16 +66,16 @@
     {
       "id": 4,
       "nom": "Test",
-      "prenom": "Testttt",
-      "email": "testtestttt@mail.com",
+      "prenom": "Test",
+      "email": "testtest@mail.com",
       "telephone": "0675958753"
     },
     {
       "id": 5,
-      "nom": "Debusschere",
-      "prenom": "jsp",
-      "email": "debuJSP@mail.com",
-      "telephone": "0675756426"
+      "nom": "jesaispasquoimettre",
+      "prenom": "iciaussi",
+      "email": "blablabla@mail.com",
+      "telephone": "9876543210"
     },
     {
       "id": 1665652663578,
@@ -83,13 +83,6 @@
       "prenom": "Martin",
       "email": "leclercqmartin@gmail.com",
       "telephone": "0685236974"
-    },
-    {
-      "id": 1665653261858,
-      "nom": "Kier",
-      "prenom": "Rémi",
-      "email": "a@mail.com",
-      "telephone": "1234657890"
     }
   ]
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './locataire.css';
 import Locataire from '../../models/locataire';
 import LocataireService from '../../services/locataire-service';
 import { Toolbar } from 'primereact/toolbar';
@@ -27,7 +28,12 @@ const GestionLocataires: React.FunctionComponent = () => {
      */
     const leftContents = () => {
         return (
-            <h1 className="mx-0 my-1">Gestion des Locataires</h1>
+            <>
+                <h1 className="mx-0 my-1" style={{ marginRight: "30px" }}>Gestion des Locataires</h1>
+                <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
+                    <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
+                </Link>
+            </>
         );
     }
 
@@ -37,15 +43,10 @@ const GestionLocataires: React.FunctionComponent = () => {
      */
     const rightContents = () => {
         return (
-            <>
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
-                </span>
-                <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
-                    <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
-                </Link>
-            </>
+            <span className="p-input-icon-left">
+                <i className="pi pi-search" />
+                <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
+            </span>
         );
     }
 
@@ -56,7 +57,7 @@ const GestionLocataires: React.FunctionComponent = () => {
     const actionButtonTable = (rowData: Locataire) => {
         return (
             <>
-                <Link to={"/gestion-locataires/modifier"} state={rowData.id} style={{ textDecoration: "none" }}>
+                <Link to={"/gestion-locataires/modifier"} state={rowData.id} style={{ textDecoration: "none", marginRight: "20px" }}>
                     <Button icon="pi pi-pencil" className="p-button-rounded p-button-warning mr-2" />
                 </Link>
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmDeleteLocataire(rowData)} />
@@ -116,11 +117,12 @@ const GestionLocataires: React.FunctionComponent = () => {
                 responsiveLayout="scroll"
                 stripedRows
                 globalFilter={globalFilter}
+                style={{ width: '90%', margin: '0 auto 0 auto' }}
             >
-                <Column field="nom" header="Nom" sortable />
-                <Column field="prenom" header="Prénom" sortable />
-                <Column field="email" header="E-mail" sortable />
-                <Column field="telephone" header="Téléphone" sortable />
+                <Column field="nom" header="Nom" align="center" sortable />
+                <Column field="prenom" header="Prénom" align="center" sortable />
+                <Column field="email" header="E-mail" align="center" sortable />
+                <Column field="telephone" header="Téléphone" align="center" sortable />
                 <Column body={actionButtonTable} />
             </DataTable>
 

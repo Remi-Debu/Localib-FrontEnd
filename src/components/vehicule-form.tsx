@@ -167,87 +167,91 @@ const VehiculeForm: React.FunctionComponent<Props> = ({ vehicule, isEditForm }) 
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <div>
-                {/* Vehicule marque */}
-                <h3>Marque</h3>
-                <InputText id='marque' name='marque' value={marque} onChange={(e) => setMarque(e.target.value)} />
-                {form.marque.error &&
-                    <div style={{ color: "red" }}>
-                        {form.marque.error}
-                    </div>}
-                {/* Vehicule modele */}
-                <h3>Modèle</h3>
-                <InputText id='modele' name='modele' value={modele} onChange={e => setModele(e.target.value)} />
-                {form.modele.error &&
-                    <div style={{ color: "red" }}>
-                        {form.modele.error}
-                    </div>}
-                {/* Vehicule immatriculation */}
-                <h3>Immatriculation</h3>
-                <InputText id='immatriculation' name='immatriculation' value={immatriculation} onChange={e => setImmatriculation(e.target.value)} />
-                {form.immatriculation.error &&
-                    <div style={{ color: "red" }}>
-                        {form.immatriculation.error}
-                    </div>}
-                {/* Vehicule etat */}
-                <h3>État</h3>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="a" name="etat" value="A" onChange={(e) => setEtat(e.value)} checked={etat === 'A'} />
-                    <label htmlFor="a">A</label>
+        <form className='form-vehicule' onSubmit={(e) => handleSubmit(e)}>
+            <div className='champ-vehicule'>
+                <div className='col1-champ-vehicule'>
+                    {/* Vehicule marque */}
+                    <h3>Marque</h3>
+                    <InputText id='marque' name='marque' value={marque} placeholder="Saisissez la marque" onChange={(e) => setMarque(e.target.value)} />
+                    {form.marque.error &&
+                        <div style={{ color: "red" }}>
+                            {form.marque.error}
+                        </div>}
+                    {/* Vehicule modele */}
+                    <h3>Modèle</h3>
+                    <InputText id='modele' name='modele' value={modele} placeholder="Saisissez le modèle" onChange={e => setModele(e.target.value)} />
+                    {form.modele.error &&
+                        <div style={{ color: "red" }}>
+                            {form.modele.error}
+                        </div>}
+                    {/* Vehicule immatriculation */}
+                    <h3>Immatriculation</h3>
+                    <InputText id='immatriculation' name='immatriculation' value={immatriculation} placeholder="Saisissez l'immatriculation" onChange={e => setImmatriculation(e.target.value)} />
+                    {form.immatriculation.error &&
+                        <div style={{ color: "red" }}>
+                            {form.immatriculation.error}
+                        </div>}
+                    {/* Vehicule prix */}
+                    <h3>Prix</h3>
+                    <InputNumber id='prix' name='prix' value={prix} mode="decimal" locale="fr-FR" minFractionDigits={2} onValueChange={(e) => setPrix(e.value)} />
+                    {form.prix.error &&
+                        <div style={{ color: "red" }}>
+                            {form.prix.error}
+                        </div>}
                 </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="b" name="etat" value="B" onChange={(e) => setEtat(e.value)} checked={etat === 'B'} />
-                    <label htmlFor="b">B</label>
+                <div className='col2-champ-vehicule'>
+                    {/* Vehicule etat */}
+                    <h3>État</h3>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="a" name="etat" value="A" onChange={(e) => setEtat(e.value)} checked={etat === 'A'} />
+                        <label htmlFor="a">A</label>
+                    </div>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="b" name="etat" value="B" onChange={(e) => setEtat(e.value)} checked={etat === 'B'} />
+                        <label htmlFor="b">B</label>
+                    </div>
+                    <div className="field-radiobutton p-button-info">
+                        <RadioButton inputId="c" name="etat" value="C" onChange={(e) => setEtat(e.value)} checked={etat === 'C'} />
+                        <label htmlFor="c">C</label>
+                    </div>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="d" name="etat" value="D" onChange={(e) => setEtat(e.value)} checked={etat === 'D'} />
+                        <label htmlFor="d">D</label>
+                    </div>
+                    {form.etat.error &&
+                        <div style={{ color: "red" }}>
+                            {form.etat.error}
+                        </div>}
+                    {/* Vehicule type */}
+                    <h3>Type</h3>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="voiture" name="type" value="Voiture" onChange={(e) => setType(e.value)} checked={type === 'Voiture'} />
+                        <label htmlFor="voiture">Voiture</label>
+                    </div>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="camion" name="type" value="Camion" onChange={(e) => setType(e.value)} checked={type === 'Camion'} />
+                        <label htmlFor="camion">Camion</label>
+                    </div>
+                    <div className="field-radiobutton">
+                        <RadioButton inputId="moto" name="type" value="Moto" onChange={(e) => setType(e.value)} checked={type === 'Moto'} />
+                        <label htmlFor="moto">Moto</label>
+                    </div>
+                    {form.type.error &&
+                        <div style={{ color: "red" }}>
+                            {form.type.error}
+                        </div>}
+                    {/* Vehicule disponibilite */}
+                    <h3>Disponible</h3>
+                    <SelectButton id='disponibilite' name='disponibilite' value={disponibilite} options={options} onChange={(e) => setDisponibilite(e.value)} />
+                    {form.disponibilite.error &&
+                        <div style={{ color: "red" }}>
+                            {form.disponibilite.error}
+                        </div>}
                 </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="c" name="etat" value="C" onChange={(e) => setEtat(e.value)} checked={etat === 'C'} />
-                    <label htmlFor="c">C</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="d" name="etat" value="D" onChange={(e) => setEtat(e.value)} checked={etat === 'D'} />
-                    <label htmlFor="d">D</label>
-                </div>
-                {form.etat.error &&
-                    <div style={{ color: "red" }}>
-                        {form.etat.error}
-                    </div>}
-                {/* Vehicule prix */}
-                <h3>Prix</h3>
-                <InputNumber id='prix' name='prix' value={prix} mode="decimal" locale="fr-FR" minFractionDigits={2} onValueChange={(e) => setPrix(e.value)} />
-                {form.prix.error &&
-                    <div style={{ color: "red" }}>
-                        {form.prix.error}
-                    </div>}
-                {/* Vehicule disponibilite */}
-                <h3>Disponible</h3>
-                <SelectButton id='disponibilite' name='disponibilite' value={disponibilite} options={options} onChange={(e) => setDisponibilite(e.value)} />
-                {form.disponibilite.error &&
-                    <div style={{ color: "red" }}>
-                        {form.disponibilite.error}
-                    </div>}
-                {/* Vehicule type */}
-                <h3>Type</h3>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="voiture" name="type" value="Voiture" onChange={(e) => setType(e.value)} checked={type === 'Voiture'} />
-                    <label htmlFor="voiture">Voiture</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="camion" name="type" value="Camion" onChange={(e) => setType(e.value)} checked={type === 'Camion'} />
-                    <label htmlFor="camion">Camion</label>
-                </div>
-                <div className="field-radiobutton">
-                    <RadioButton inputId="moto" name="type" value="Moto" onChange={(e) => setType(e.value)} checked={type === 'Moto'} />
-                    <label htmlFor="moto">Moto</label>
-                </div>
-                {form.type.error &&
-                    <div style={{ color: "red" }}>
-                        {form.type.error}
-                    </div>}
             </div>
-            <div>
+            <div className='submit-vehicule'>
                 {/* Submit button */}
-                <Button type='submit' label="Valider" icon="pi pi-check" />
+                <Button className='p-button-info' type='submit' label="Valider" icon="pi pi-check" />
             </div>
         </form>
     )

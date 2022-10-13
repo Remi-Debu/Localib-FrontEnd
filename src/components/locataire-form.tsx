@@ -116,40 +116,40 @@ const LocataireForm: React.FunctionComponent<Props> = ({ locataire, isEditForm }
     }
 
     return (
-        <form onSubmit={e => handleSubmit(e)}>
-            <div>
+        <form className='form-locataire' onSubmit={e => handleSubmit(e)}>
+            <div className='champ-locataire'>
                 {/* Locataire nom */}
                 <h3>Nom</h3>
-                <InputText id='nom' name='nom' value={nom} onChange={e => setNom(e.target.value)} />
+                <InputText id='nom' name='nom' value={nom} placeholder="Saisissez votre nom" onChange={e => setNom(e.target.value)} />
                 {form.nom.error &&
                     <div style={{ color: "red" }}>
                         {form.nom.error}
                     </div>}
                 {/* Locataire prenom */}
                 <h3>Prénom</h3>
-                <InputText id='prenom' name='prenom' value={prenom} onChange={e => setPrenom(e.target.value)} />
+                <InputText id='prenom' name='prenom' value={prenom} placeholder="Saisissez votre prénom" onChange={e => setPrenom(e.target.value)} />
                 {form.prenom.error &&
                     <div style={{ color: "red" }}>
                         {form.prenom.error}
                     </div>}
                 {/* Locataire email */}
                 <h3>Email</h3>
-                <InputText id='email' name='email' value={email} onChange={e => setEmail(e.target.value)} />
+                <InputText id='email' name='email' value={email} placeholder="Saisissez votre email" onChange={e => setEmail(e.target.value)} />
                 {form.email.error &&
                     <div style={{ color: "red" }}>
                         {form.email.error}
                     </div>}
                 {/* Locataire telephone */}
                 <h3>Téléphone</h3>
-                <InputText id='telephone' name='telephone' value={telephone} onChange={e => setTelephone(e.target.value)} />
+                <InputText id='telephone' name='telephone' value={telephone} placeholder="Saisissez votre n° de téléphone" onChange={e => setTelephone(e.target.value)} />
                 {form.telephone.error &&
                     <div style={{ color: "red" }}>
                         {form.telephone.error}
                     </div>}
             </div>
-            <div>
+            <div className='submit-locataire'>
                 {/* Submit button */}
-                <Button type='submit' label="Valider" icon="pi pi-check" />
+                <Button className='p-button-info' type='submit' label="Valider" icon="pi pi-check" />
             </div>
         </form >
     )

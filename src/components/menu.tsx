@@ -1,4 +1,5 @@
 import React from 'react'
+import './menu.css';
 import { Menubar } from 'primereact/menubar';
 
 const Menu: React.FunctionComponent = () => {
