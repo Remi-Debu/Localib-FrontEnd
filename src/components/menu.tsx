@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { Menubar } from 'primereact/menubar';
 
-const Menu: FunctionComponent = () => {
+const Menu: React.FunctionComponent = () => {
     const items = [
         {
             label: 'Gestion Véhicules',
@@ -11,7 +11,6 @@ const Menu: FunctionComponent = () => {
             label: 'Gestion Locataires',
             url: '/gestion-locataires'
         }
-
     ];
 
     const start = <img src="/localib.png" height={90} alt="logo" />;

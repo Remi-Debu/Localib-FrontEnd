@@ -4,6 +4,7 @@ import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
 import Menu from './components/menu';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import GestionLocataires from './pages/gestion-locataires';
 
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
           <Route path='*' element={<p>Page non trouvée !</p>} />
           <Route path='/' element={<Navigate to="/gestion-vehicules" />} />
 
-          <Route path='/gestion-vehicules' />
-          <Route path='/gestion-locataires' />
+          <Route path='/gestion-vehicules' />  
+          <Route path='/gestion-locataires' element={<GestionLocataires />} />
         </Routes>
       </Router>
     </>
