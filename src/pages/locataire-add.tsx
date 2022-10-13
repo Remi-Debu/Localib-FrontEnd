@@ -12,9 +12,7 @@ const LocataireAdd: React.FunctionComponent = () => {
      * @returns Titre de la page.
      */
     const leftContents = () => (
-        <>
-            <h1 className="mx-0 my-1">Ajouter un Locataire</h1>
-        </>
+        <h1 className="mx-0 my-1">Ajouter un Locataire</h1>
     );
 
     return (

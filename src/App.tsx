@@ -6,6 +6,7 @@ import Menu from './components/menu';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import GestionLocataires from './pages/gestion-locataires';
 import LocataireAdd from './pages/locataire-add';
+import LocataireUpdate from './pages/locataire-update';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
           <Route path='/gestion-locataires' element={<GestionLocataires />} />
           <Route path='/gestion-locataires/ajouter' element={<LocataireAdd />} />
+          <Route path='/gestion-locataires/modifier' element={<LocataireUpdate />} />
         </Routes>
       </Router>
     </>

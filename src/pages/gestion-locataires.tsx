@@ -45,10 +45,10 @@ const GestionLocataires: React.FunctionComponent = () => {
      * Sert a afficher le bouton de modification et de suppression du tableau pour la dernière colonne
      * @returns Un composant React.
      */
-    const actionButtonTable = () => {
+    const actionButtonTable = (rowData: Locataire) => {
         return (
             <>
-                <Link to={"/gestion-locataires/modifier"} style={{ textDecoration: "none" }}>
+                <Link to={"/gestion-locataires/modifier"} state={rowData.id} style={{ textDecoration: "none" }}>
                     <Button icon="pi pi-pencil" className="p-button-rounded p-button-warning mr-2" />
                 </Link>
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" />

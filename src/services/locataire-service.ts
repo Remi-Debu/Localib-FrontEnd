@@ -7,6 +7,13 @@ export default class LocataireService {
             .catch(error => this.handleError(error));
     }
 
+    static getLocataire(id: number): Promise<Locataire | null> {
+        return fetch(`http://localhost:3001/locataires/${id}`)
+            .then(res => res.json())
+            .then(data => this.isEmpty(data) ? null : data)
+            .catch(err => this.handleError(err));
+    }
+
     static addLocataire(locataire: Locataire): Promise<Locataire> {
         return fetch('http://localhost:3001/locataires', {
             method: 'POST',
@@ -17,7 +24,21 @@ export default class LocataireService {
         .catch(error => this.handleError(error));
     }
 
+    static updateLocataire(locataire: Locataire): Promise<Locataire> {
+        return fetch(`http://localhost:3001/locataires/${locataire.id}`, {
+            method: 'PUT', 
+            headers: { 'Content-Type' : 'application/json'},
+            body: JSON.stringify(locataire)
+        })
+        .then(response => response.json())
+        .catch(error => this.handleError(error));
+    }
+
     static handleError(error: Error): void {
         console.error(error);
+    }
+
+    static isEmpty(data: Object): boolean {
+        return Object.keys(data).length === 0;
     }
 }

@@ -105,11 +105,14 @@ const LocataireForm: React.FunctionComponent<Props> = ({ locataire, isEditForm }
      * Ajoute un locataire et redirige vers la gestion des locataires
      */
     const addLocataire = () => {
-        LocataireService.addLocataire(locataire).then(() => navigate(`/gestion-locataires`));
+        LocataireService.addLocataire(locataire).then(() => navigate('/gestion-locataires'));
     }
 
+    /**
+     * Modifie un locataire et redirige vers la gestion des locataires
+     */
     const updateLocataire = () => {
-        // empty
+        LocataireService.updateLocataire(locataire).then(() => navigate('/gestion-locataires'));
     }
 
     return (
