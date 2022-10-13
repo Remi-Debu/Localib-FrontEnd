@@ -12,7 +12,7 @@ const GestionLocataires: React.FunctionComponent = () => {
     const [locataires, setLocataires] = useState<Locataire[]>([]);
     const [selectedLocataire, setSelectedLocataire] = useState(null);
     const [deleteLocataireDialog, setDeleteLocataireDialog] = useState(false);
-    const [id] = useState<number>(new Date().getTime());
+    const [id] = useState<number>(new Date().getTime()); // Genere un Timestamp pour l'id d'un locataire
     const [locataire, setLocataire] = useState<Locataire>(new Locataire(id));
 
     useEffect(() => {
@@ -25,9 +25,7 @@ const GestionLocataires: React.FunctionComponent = () => {
      */
     const leftContents = () => {
         return (
-            <>
-                <h1 className="mx-0 my-1">Gestion des Locataires</h1>
-            </>
+            <h1 className="mx-0 my-1">Gestion des Locataires</h1>
         );
     }
 
@@ -37,11 +35,9 @@ const GestionLocataires: React.FunctionComponent = () => {
      */
     const rightContents = () => {
         return (
-            <>
-                <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
-                    <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
-                </Link>
-            </>
+            <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
+                <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
+            </Link>
         );
     }
 
@@ -72,8 +68,7 @@ const GestionLocataires: React.FunctionComponent = () => {
     /**
      * Footer de la fenetre de suppression 
      * qui contient 2 boutons "oui" et "non"
-     * 
-     * @returns L'instruction return renvoie un fragment de réaction.
+     * @returns bouton "oui" et "non"
      */
     const deleteLocataireDialogFooter = () => {
         return (
