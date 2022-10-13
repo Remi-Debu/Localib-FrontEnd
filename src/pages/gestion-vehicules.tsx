@@ -7,6 +7,7 @@ import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { Toolbar } from 'primereact/toolbar';
 import { Dialog } from 'primereact/dialog';
+import { InputText } from 'primereact/inputtext';
 
 const GestionVehicules: React.FunctionComponent = () => {
     const [vehicules, setVehicules] = useState<Vehicule[]>([]);
@@ -14,6 +15,7 @@ const GestionVehicules: React.FunctionComponent = () => {
     const [deleteVehiculeDialog, setDeleteVehiculeDialog] = useState(false);
     const [id] = useState<number>(new Date().getTime()); // Genere un Timestamp pour l'id d'un vehicule
     const [vehicule, setVehicule] = useState<Vehicule>(new Vehicule(id));
+    const [globalFilter, setGlobalFilter] = useState<string | null>(null);
 
 
     useEffect(() => {
@@ -33,9 +35,15 @@ const GestionVehicules: React.FunctionComponent = () => {
      *  @returns Bouton d'ajout.
      */
     const rightContents = () => (
-        <Link to="/gestion-vehicules/ajouter" style={{ textDecoration: "none" }}>
-            <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
-        </Link>
+        <>
+            <span className="p-input-icon-left">
+                <i className="pi pi-search" />
+                <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
+            </span>
+            <Link to="/gestion-vehicules/ajouter" style={{ textDecoration: "none" }}>
+                <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
+            </Link>
+        </>
     );
 
     /**
@@ -104,6 +112,7 @@ const GestionVehicules: React.FunctionComponent = () => {
                 onSelectionChange={e => setSelectedVehicule(e.value)}
                 responsiveLayout="scroll"
                 stripedRows
+                globalFilter={globalFilter}
             >
                 <Column field="marque" header="Marque" sortable />
                 <Column field="modele" header="Modèle" sortable />

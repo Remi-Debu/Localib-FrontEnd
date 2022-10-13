@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dialog } from 'primereact/dialog';
+import { InputText } from 'primereact/inputtext';
 
 const GestionLocataires: React.FunctionComponent = () => {
     const [locataires, setLocataires] = useState<Locataire[]>([]);
@@ -14,6 +15,7 @@ const GestionLocataires: React.FunctionComponent = () => {
     const [deleteLocataireDialog, setDeleteLocataireDialog] = useState(false);
     const [id] = useState<number>(new Date().getTime()); // Genere un Timestamp pour l'id d'un locataire
     const [locataire, setLocataire] = useState<Locataire>(new Locataire(id));
+    const [globalFilter, setGlobalFilter] = useState<string | null>(null);
 
     useEffect(() => {
         LocataireService.getLocataires().then(locataires => setLocataires(locataires));
@@ -35,9 +37,15 @@ const GestionLocataires: React.FunctionComponent = () => {
      */
     const rightContents = () => {
         return (
-            <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
-                <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
-            </Link>
+            <>
+                <span className="p-input-icon-left">
+                    <i className="pi pi-search" />
+                    <InputText type="Search" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setGlobalFilter(e.target.value)} placeholder="Recherche..." />
+                </span>
+                <Link to="/gestion-locataires/ajouter" style={{ textDecoration: "none" }}>
+                    <Button label="Ajouter" icon="pi pi-plus" className="p-button-success mr-2" />
+                </Link>
+            </>
         );
     }
 
@@ -107,6 +115,7 @@ const GestionLocataires: React.FunctionComponent = () => {
                 onSelectionChange={e => setSelectedLocataire(e.value)}
                 responsiveLayout="scroll"
                 stripedRows
+                globalFilter={globalFilter}
             >
                 <Column field="nom" header="Nom" sortable />
                 <Column field="prenom" header="Prénom" sortable />
