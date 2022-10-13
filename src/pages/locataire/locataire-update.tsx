@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router';
-import Locataire from '../models/locataire';
+import Locataire from '../../models/locataire';
 import { Toolbar } from 'primereact/toolbar';
-import LocataireService from '../services/locataire-service';
-import LocataireForm from '../components/locataire-form';
+import LocataireService from '../../services/locataire-service';
+import LocataireForm from '../../components/locataire-form';
 
 const LocataireUpdate: React.FunctionComponent = () => {
     const state: number = useLocation().state;

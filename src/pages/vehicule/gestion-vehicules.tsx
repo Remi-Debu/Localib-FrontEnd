@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Vehicule from '../models/vehicule';
-import VehiculeService from '../services/vehicule-service';
+import Vehicule from '../../models/vehicule';
+import VehiculeService from '../../services/vehicule-service';
 import { DataTable } from 'primereact/datatable';
 import { Link } from 'react-router-dom';
 import { Button } from 'primereact/button';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Locataire from '../models/locataire';
-import LocataireService from '../services/locataire-service';
+import Locataire from '../../models/locataire';
+import LocataireService from '../../services/locataire-service';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';

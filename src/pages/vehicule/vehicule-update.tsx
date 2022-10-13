@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router';
-import Vehicule from '../models/vehicule';
-import VehiculeService from '../services/vehicule-service';
-import VehiculeForm from '../components/vehicule-form';
+import Vehicule from '../../models/vehicule';
+import VehiculeService from '../../services/vehicule-service';
+import VehiculeForm from '../../components/vehicule-form';
 import { Toolbar } from 'primereact/toolbar';
 
 const VehiculeUpdate: React.FunctionComponent = () => {

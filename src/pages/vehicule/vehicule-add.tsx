@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Toolbar } from 'primereact/toolbar';
-import Vehicule from '../models/vehicule';
-import VehiculeForm from '../components/vehicule-form';
+import Vehicule from '../../models/vehicule';
+import VehiculeForm from '../../components/vehicule-form';
 
 const VehiculeAdd: React.FunctionComponent = () => {
     const [id] = useState<number>(new Date().getTime()); // Genere un Timestamp pour l'id d'un vehicule

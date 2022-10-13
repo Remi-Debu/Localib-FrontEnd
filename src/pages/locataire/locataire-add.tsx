@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Toolbar } from 'primereact/toolbar';
-import Locataire from '../models/locataire';
-import LocataireForm from '../components/locataire-form';
+import Locataire from '../../models/locataire';
+import LocataireForm from '../../components/locataire-form';
 
 const LocataireAdd: React.FunctionComponent = () => {
     const [id] = useState<number>(new Date().getTime()); // Genere un Timestamp pour l'id d'un locataire

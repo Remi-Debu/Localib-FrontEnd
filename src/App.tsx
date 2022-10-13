@@ -4,12 +4,12 @@ import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
 import Menu from './components/menu';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import GestionLocataires from './pages/gestion-locataires';
-import LocataireAdd from './pages/locataire-add';
-import LocataireUpdate from './pages/locataire-update';
-import GestionVehicules from './pages/gestion-vehicules';
-import VehiculeAdd from './pages/vehicule-add';
-import VehiculeUpdate from './pages/vehicule-update';
+import GestionLocataires from './pages/locataire/gestion-locataires';
+import LocataireAdd from './pages/locataire/locataire-add';
+import LocataireUpdate from './pages/locataire/locataire-update';
+import GestionVehicules from './pages/vehicule/gestion-vehicules';
+import VehiculeAdd from './pages/vehicule/vehicule-add';
+import VehiculeUpdate from './pages/vehicule/vehicule-update';
 
 
 function App() {
