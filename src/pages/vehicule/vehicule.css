@@ -10,7 +10,7 @@
 .champ-vehicule {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .submit-vehicule {
@@ -28,4 +28,20 @@
 
 .field-radiobutton {
     margin-bottom: 10px;
+}
+
+#marque {
+    width: 70%;
+}
+
+#modele {
+    width: 70%;
+}
+
+#immatriculation {
+    width: 70%;
+}
+
+#prix {
+    width: 70%;
 }
