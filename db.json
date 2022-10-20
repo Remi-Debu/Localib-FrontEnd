@@ -17,7 +17,7 @@
       "immatriculation": "852-ZGD-69",
       "etat": "B",
       "prix": 751.01,
-      "disponibilite": "Non",
+      "disponibilite": "Oui",
       "type": "Voiture"
     },
     {
@@ -27,7 +27,7 @@
       "immatriculation": "963-AFS-95",
       "etat": "C",
       "prix": 45.99,
-      "disponibilite": "Oui",
+      "disponibilite": "Non",
       "type": "Moto"
     },
     {
@@ -105,8 +105,8 @@
         "email": "debu.remi@gmail.com",
         "telephone": "0678965245"
       },
-      "dateDebut": "Debut",
-      "dateFin": "Fin",
+      "dateDebut": "01/08/2022",
+      "dateFin": "05/09/2022",
       "cout": 361.72
     },
     {
@@ -128,8 +128,8 @@
         "email": "dupontjean@gmail.com",
         "telephone": "0675482564"
       },
-      "dateDebut": "Debut",
-      "dateFin": "Fin",
+      "dateDebut": "04/10/2022",
+      "dateFin": "24/11/2022",
       "cout": 450.54
     }
   ]

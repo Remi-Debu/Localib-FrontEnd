@@ -92,10 +92,10 @@ const LocationDetails: React.FunctionComponent = () => {
                         <h2 className='title'>Location</h2>
                         <div className='attributs-location'>
                             {/* Location dateDebut */}
-                            <h3>Marque</h3>
+                            <h3>Date de début</h3>
                             <InputText id='dateDebut' name='dateDebut' value={location.dateDebut} />
                             {/* Location dateFin */}
-                            <h3>Modèle</h3>
+                            <h3>Date de fin</h3>
                             <InputText id='dateFin' name='dateFin' value={location.dateFin} />
                             {/* Location cout */}
                             <h3>Coût</h3>

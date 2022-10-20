@@ -14,6 +14,16 @@ export default class LocationService {
             .catch(err => this.handleError(err));
     }
 
+    static addLocation(location: Location): Promise<Location> {
+        return fetch('http://localhost:3001/locations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(location)
+        })
+            .then(response => response.json())
+            .catch(error => this.handleError(error));
+    }
+
     static isEmpty(data: Object): Boolean {
         return Object.keys(data).length === 0;
     }

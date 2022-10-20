@@ -12,6 +12,8 @@ import VehiculeUpdate from './pages/vehicule/vehicule-update';
 import NotFound from './pages/notFound';
 import GestionLocation from './pages/location/gestion-location';
 import LocationDetails from './pages/location/location-details';
+import LocationVehicule from './pages/location/location-vehicule';
+import LouerVehicule from './pages/location/louer-vehicule';
 
 
 function App() {
@@ -32,6 +34,9 @@ function App() {
 
           <Route path="/gestion-locations" element={<GestionLocation />} />
           <Route path='/gestion-locations/details' element={<LocationDetails />} />
+
+          <Route path="/location-vehicules" element={<LocationVehicule />} />
+          <Route path="/location-vehicules/louer" element={<LouerVehicule />} />
         </Routes>
       </Router>
     </>
