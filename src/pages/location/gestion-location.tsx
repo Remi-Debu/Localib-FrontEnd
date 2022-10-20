@@ -52,14 +52,14 @@ const GestionLocation: React.FunctionComponent = () => {
                 stripedRows
                 style={{ width: '90%', margin: '0 auto 0 auto' }}
             >
-                <Column field="locataire.nom" header="Nom" sortable />
-                <Column field="locataire.prenom" header="Prénom" sortable />
-                <Column field="vehicule.marque" header="Marque" sortable />
-                <Column field="vehicule.modele" header="Modèle" sortable />
-                <Column field="dateDebut" header="Date de début" sortable />
-                <Column field="dateFin" header="Date de fin" sortable />
-                <Column field="cout" header="Coût" sortable />
-                <Column body={actionButtonTable} />
+                <Column field="locataire.nom" header="Nom" align="center" sortable />
+                <Column field="locataire.prenom" header="Prénom" align="center" sortable />
+                <Column field="vehicule.marque" header="Marque" align="center" sortable />
+                <Column field="vehicule.modele" header="Modèle" align="center" sortable />
+                <Column field="dateDebut" header="Date de début" align="center" sortable />
+                <Column field="dateFin" header="Date de fin" align="center" sortable />
+                <Column field="cout" header="Coût" align="center" sortable />
+                <Column body={actionButtonTable} align="center" />
             </DataTable>
         </>
     )

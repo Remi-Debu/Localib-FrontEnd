@@ -125,7 +125,7 @@ const GestionVehicules: React.FunctionComponent = () => {
                 <Column field="prix" header="Prix" align="center" sortable />
                 <Column field="type" header="Type" align="center" sortable />
                 <Column field="disponibilite" header="Disponibilité" align="center" sortable />
-                <Column body={actionButtonTable} />
+                <Column body={actionButtonTable} align="center" />
             </DataTable>
 
             <Dialog visible={deleteVehiculeDialog} style={{ width: '450px' }} header="Confirmer la suppression" modal footer={deleteVehiculeDialogFooter} onHide={hideDeleteVehiculeDialog}>

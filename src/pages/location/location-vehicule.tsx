@@ -52,14 +52,14 @@ const LocationVehicule = () => {
                 stripedRows
                 style={{ width: '90%', margin: '0 auto 0 auto' }}
             >
-                <Column field="marque" header="Marque" sortable />
-                <Column field="modele" header="Modèle" sortable />
-                <Column field="immatriculation" header="Immatriculation" sortable />
-                <Column field="etat" header="État" sortable />
-                <Column field="prix" header="Prix" sortable />
-                <Column field="type" header="Type" sortable />
-                <Column field="disponibilite" header="Disponibilité" sortable />
-                <Column body={actionButtonTable} />
+                <Column field="marque" header="Marque" align="center" sortable />
+                <Column field="modele" header="Modèle" align="center" sortable />
+                <Column field="immatriculation" header="Immatriculation" align="center" sortable />
+                <Column field="etat" header="État" align="center" sortable />
+                <Column field="prix" header="Prix" align="center" sortable />
+                <Column field="type" header="Type" align="center" sortable />
+                <Column field="disponibilite" header="Disponibilité" align="center" sortable />
+                <Column body={actionButtonTable} align="center" />
             </DataTable>
         </>
     )

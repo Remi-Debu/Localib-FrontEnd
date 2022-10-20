@@ -125,7 +125,7 @@ const GestionLocataires: React.FunctionComponent = () => {
                 <Column field="prenom" header="Prénom" align="center" sortable />
                 <Column field="email" header="E-mail" align="center" sortable />
                 <Column field="telephone" header="Téléphone" align="center" sortable />
-                <Column body={actionButtonTable} />
+                <Column body={actionButtonTable} align="center" />
             </DataTable>
 
             <Dialog visible={deleteLocataireDialog} style={{ width: '450px' }} header="Confirmer la suppression" modal footer={deleteLocataireDialogFooter} onHide={hideDeleteLocataireDialog}>

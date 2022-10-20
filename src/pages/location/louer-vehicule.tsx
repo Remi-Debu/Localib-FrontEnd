@@ -8,7 +8,6 @@ import LocationService from '../../services/location-service';
 import Menu from '../../components/menu';
 import { useLocation, useNavigate } from 'react-router';
 import { InputText } from 'primereact/inputtext';
-import { InputNumber } from 'primereact/inputnumber';
 import { Toolbar } from 'primereact/toolbar';
 import { AutoComplete } from 'primereact/autocomplete';
 import { Calendar } from 'primereact/calendar';
@@ -28,12 +27,8 @@ const LouerVehicule: React.FunctionComponent = () => {
     useEffect(() => {
         VehiculeService.getVehicule(state).then(vehicule => setVehicule(vehicule));
         LocataireService.getLocataires().then(locataires => setLocataires(locataires));
-    }, []);
-
-    useEffect(() => {
-        console.log(cout);
-
-    }, [dateFin, cout]);
+        calculCout();
+    }, [dateDebut, dateFin, selectedLocataire]);
 
     /**
      * Affiche le contenu de gauche de la Toolbar
@@ -75,7 +70,7 @@ const LouerVehicule: React.FunctionComponent = () => {
         let result = 0;
 
         if (dateDebut && dateFin && vehicule) {
-            if (dateDebut < dateFin) {
+            if (dateDebut <= dateFin) {
                 let date1 = new Date(dateDebut.toString());
                 let date2 = new Date(dateFin.toString());
 
@@ -86,7 +81,7 @@ const LouerVehicule: React.FunctionComponent = () => {
                 result = parseFloat(result.toFixed(2));
             }
         }
-        return result;
+        setCout(result);
     }
 
     /**
@@ -99,7 +94,7 @@ const LouerVehicule: React.FunctionComponent = () => {
         e.preventDefault();
 
         if (filteredLocataires[0] && vehicule && dateDebut && dateFin && cout) {
-            if (dateDebut < dateFin) {
+            if (dateDebut <= dateFin) {
                 let locationId = new Date().getTime(); // id == timestamp
                 let locationVehicule = vehicule;
                 let locationLocataire = filteredLocataires[0];
@@ -131,16 +126,6 @@ const LouerVehicule: React.FunctionComponent = () => {
         VehiculeService.updateVehicule(vehicule);
     }
 
-    const handleChangeDateDebut = (data: any) => {
-        setDateDebut(data);
-        setCout(calculCout);
-    }
-
-    const handleChangeDateFin = (data: any) => {
-        setDateFin(data);
-        setCout(calculCout);
-    }
-
     return (
         <>
             <Menu />
@@ -154,7 +139,8 @@ const LouerVehicule: React.FunctionComponent = () => {
                         <div className='collection'>
                             <AutoComplete
                                 value={selectedLocataire}
-                                suggestions={filteredLocataires}
+                                // Suggestions désactivées cela occasionne un problème lorqu'on clique dessus cela ne prend pas en compte le locataire selectionné
+                                // suggestions={filteredLocataires} 
                                 completeMethod={searchLocataire}
                                 field="email"
                                 onChange={e => setSelectedLocataire(e.value)}
@@ -211,7 +197,7 @@ const LouerVehicule: React.FunctionComponent = () => {
                                     <InputText id='type' name='type' value={vehicule.type} />
                                     {/* Vehicule prix */}
                                     <h3>Prix</h3>
-                                    <InputNumber id='prix' name='prix' value={vehicule.prix} mode="decimal" locale="fr-FR" minFractionDigits={2} />
+                                    <InputText id='prix' name='prix' value={vehicule.prix} />
                                 </div>
                             </div>
                         </div>
@@ -223,10 +209,10 @@ const LouerVehicule: React.FunctionComponent = () => {
                     <div className='attributs-location'>
                         {/* Location dateDebut */}
                         <h3>Date de Début</h3>
-                        <Calendar id="dateDebut" value={dateDebut} dateFormat="dd/mm/yy" placeholder='jj/mm/aaaa' onChange={(e) => handleChangeDateDebut(e.target.value)} />
+                        <Calendar id="dateDebut" value={dateDebut} dateFormat="dd/mm/yy" placeholder='jj/mm/aaaa' onChange={(e) => setDateDebut(e.value)} />
                         {/* Location dateFin */}
                         <h3>Date de fin</h3>
-                        <Calendar id="dateFin" value={dateFin} dateFormat="dd/mm/yy" placeholder='jj/mm/aaaa' onChange={(e) => handleChangeDateFin(e.target.value)}
+                        <Calendar id="dateFin" value={dateFin} dateFormat="dd/mm/yy" placeholder='jj/mm/aaaa' onChange={(e) => setDateFin(e.value)}
                         />
                         {/* Location cout */}
                         <h3>Coût</h3>

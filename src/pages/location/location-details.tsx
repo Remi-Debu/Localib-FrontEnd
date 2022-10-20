@@ -4,7 +4,6 @@ import LocationService from './../../services/location-service';
 import Location from './../../models/location';
 import { useLocation } from 'react-router';
 import { InputText } from 'primereact/inputtext';
-import { InputNumber } from 'primereact/inputnumber';
 import { Toolbar } from 'primereact/toolbar';
 import Menu from '../../components/menu';
 
@@ -82,7 +81,7 @@ const LocationDetails: React.FunctionComponent = () => {
                                     <InputText id='type' name='type' value={location.vehicule.type} />
                                     {/* Vehicule prix */}
                                     <h3>Prix</h3>
-                                    <InputNumber id='prix' name='prix' value={location.vehicule.prix} mode="decimal" locale="fr-FR" minFractionDigits={2} />
+                                    <InputText id='prix' name='prix' value={location.vehicule.prix} />
                                 </div>
                             </div>
                         </div>
