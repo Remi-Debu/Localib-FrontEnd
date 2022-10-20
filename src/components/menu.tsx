@@ -11,6 +11,10 @@ const Menu: React.FunctionComponent = () => {
         {
             label: 'Gestion Locataires',
             url: '/gestion-locataires'
+        },
+        {
+            label: 'Gestion Locations',
+            url: '/gestion-locations'
         }
     ];
 

@@ -10,6 +10,8 @@ import GestionVehicules from './pages/vehicule/gestion-vehicules';
 import VehiculeAdd from './pages/vehicule/vehicule-add';
 import VehiculeUpdate from './pages/vehicule/vehicule-update';
 import NotFound from './pages/notFound';
+import GestionLocation from './pages/location/gestion-location';
+import LocationDetails from './pages/location/location-details';
 
 
 function App() {
@@ -27,6 +29,9 @@ function App() {
           <Route path='/gestion-locataires' element={<GestionLocataires />} />
           <Route path='/gestion-locataires/ajouter' element={<LocataireAdd />} />
           <Route path='/gestion-locataires/modifier' element={<LocataireUpdate />} />
+
+          <Route path="/gestion-locations" element={<GestionLocation />} />
+          <Route path='/gestion-locations/details' element={<LocationDetails />} />
         </Routes>
       </Router>
     </>

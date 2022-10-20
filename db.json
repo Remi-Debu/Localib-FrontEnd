@@ -84,5 +84,53 @@
       "email": "leclercqmartin@gmail.com",
       "telephone": "0685236974"
     }
+  ],
+  "locations": [
+    {
+      "id": 1665409826440,
+      "vehicule": {
+        "id": 1165418036748,
+        "marque": "Renault",
+        "modele": "Clio",
+        "immatriculation": "123-AB-59",
+        "etat": "A",
+        "prix": 148.54,
+        "disponibilite": "Oui",
+        "type": "Voiture"
+      },
+      "locataire": {
+        "id": 1665408874010,
+        "nom": "Debu",
+        "prenom": "Remi",
+        "email": "debu.remi@gmail.com",
+        "telephone": "0678965245"
+      },
+      "dateDebut": "Debut",
+      "dateFin": "Fin",
+      "cout": 361.72
+    },
+    {
+      "id": 1665409826441,
+      "vehicule": {
+        "id": 1365418036748,
+        "marque": "Yamaha",
+        "modele": "R1",
+        "immatriculation": "963-AFS-95",
+        "etat": "C",
+        "prix": 45.99,
+        "disponibilite": "Oui",
+        "type": "Moto"
+      },
+      "locataire": {
+        "id": 1665408874011,
+        "nom": "Dupont",
+        "prenom": "Jean",
+        "email": "dupontjean@gmail.com",
+        "telephone": "0675482564"
+      },
+      "dateDebut": "Debut",
+      "dateFin": "Fin",
+      "cout": 450.54
+    }
   ]
 }
